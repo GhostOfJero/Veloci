@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELOCI — Urban Bike Rental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">VELOCI</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+  <div class="loader-text">Loading your ride...</div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#bikes" onclick="closeMobileNav()">Bikes</a>
+  <a href="#features" onclick="closeMobileNav()">Features</a>
+  <a href="#locations" onclick="closeMobileNav()">Locations</a>
+  <a href="#book" onclick="closeMobileNav()">Book Now</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">VELOCI</a>
+  <ul class="nav-links">
+    <li><a href="#bikes">Bikes</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#locations">Locations</a></li>
+    <li><a href="#charging">Charging</a></li>
+    <li><a href="#book" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-tag">Urban Mobility Reimagined</div>
+  <h1 class="hero-title">RIDE<br><span>FREE</span><br>TODAY</h1>
+  <p class="hero-sub">Premium electric bikes available across 24 city hubs. Unlock, ride, return — it's that simple.</p>
+  <div class="hero-actions">
+    <a href="#bikes" class="btn-primary">Explore Bikes →</a>
+    <a href="#book" class="btn-secondary">Book a Ride</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" data-target="240">0</div>
+      <div class="stat-label">Active Bikes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="24">0</div>
+      <div class="stat-label">City Hubs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="18000">0</div>
+      <div class="stat-label">Happy Riders</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="98">0</div>
+      <div class="stat-label">% Satisfaction</div>
+    </div>
+  </div>
+  <div class="hero-bike-preview">
+    <div class="bike-svg-wrap">
+      <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+        <ellipse cx="300" cy="370" rx="180" ry="20" fill="rgba(200,241,53,0.15)"/>
+        <circle cx="160" cy="300" r="90" stroke="rgba(200,241,53,0.3)" stroke-width="3"/>
+        <circle cx="160" cy="300" r="60" stroke="rgba(200,241,53,0.15)" stroke-width="2"/>
+        <circle cx="160" cy="300" r="8" fill="rgba(200,241,53,0.6)"/>
+        <circle cx="440" cy="300" r="90" stroke="rgba(200,241,53,0.3)" stroke-width="3"/>
+        <circle cx="440" cy="300" r="60" stroke="rgba(200,241,53,0.15)" stroke-width="2"/>
+        <circle cx="440" cy="300" r="8" fill="rgba(200,241,53,0.6)"/>
+        <g stroke="rgba(200,241,53,0.2)" stroke-width="1.5">
+          <line x1="160" y1="210" x2="160" y2="300"/>
+          <line x1="160" y1="300" x2="160" y2="390"/>
+          <line x1="70"  y1="300" x2="250" y2="300"/>
+          <line x1="96"  y1="236" x2="224" y2="364"/>
+          <line x1="224" y1="236" x2="96"  y2="364"/>
+        </g>
+        <g stroke="rgba(200,241,53,0.2)" stroke-width="1.5">
+          <line x1="440" y1="210" x2="440" y2="300"/>
+          <line x1="440" y1="300" x2="440" y2="390"/>
+          <line x1="350" y1="300" x2="530" y2="300"/>
+          <line x1="376" y1="236" x2="504" y2="364"/>
+          <line x1="504" y1="236" x2="376" y2="364"/>
+        </g>
+        <path d="M160 300 L280 160 L440 300" stroke="rgba(245,245,240,0.9)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M280 160 L360 220 L440 300" stroke="rgba(245,245,240,0.7)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M280 160 L240 300"          stroke="rgba(245,245,240,0.6)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M320 200 L440 300"          stroke="rgba(245,245,240,0.5)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M355 140 L320 200"          stroke="rgba(245,245,240,0.8)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M340 130 L370 140"          stroke="rgba(200,241,53,0.9)"  stroke-width="4" stroke-linecap="round"/>
+        <path d="M255 155 L295 155"          stroke="rgba(200,241,53,0.9)"  stroke-width="6" stroke-linecap="round"/>
+        <line x1="275" y1="155" x2="280" y2="165" stroke="rgba(245,245,240,0.5)" stroke-width="3"/>
+        <ellipse cx="240" cy="300" rx="20" ry="20" stroke="rgba(200,241,53,0.3)" stroke-width="2" fill="none"/>
+        <ellipse cx="440" cy="300" rx="12" ry="12" stroke="rgba(200,241,53,0.3)" stroke-width="2" fill="none"/>
+        <rect x="270" y="220" width="50" height="22" rx="4" fill="rgba(200,241,53,0.15)" stroke="rgba(200,241,53,0.4)" stroke-width="1.5"/>
+        <rect x="320" y="226" width="6"  height="10" rx="2" fill="rgba(200,241,53,0.4)"/>
+        <rect x="273" y="223" width="35" height="16" rx="2" fill="rgba(200,241,53,0.4)"/>
+        <circle cx="450" cy="250" r="8" fill="rgba(200,241,53,0.8)" filter="url(#glow)"/>
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="accent">⚡ ELECTRIC</span>
+    <span>ZERO EMISSIONS</span>
+    <span class="accent">📍 24 HUBS</span>
+    <span>GPS TRACKED</span>
+    <span class="accent">🔋 80KM RANGE</span>
+    <span>HELMET INCLUDED</span>
+    <span class="accent">🌧 WEATHER PROOF</span>
+    <span>SMART LOCK</span>
+    <span class="accent">⚡ ELECTRIC</span>
+    <span>ZERO EMISSIONS</span>
+    <span class="accent">📍 24 HUBS</span>
+    <span>GPS TRACKED</span>
+    <span class="accent">🔋 80KM RANGE</span>
+    <span>HELMET INCLUDED</span>
+    <span class="accent">🌧 WEATHER PROOF</span>
+    <span>SMART LOCK</span>
+  </div>
+</div>
+
+<!-- BIKES -->
+<section id="bikes">
+  <div class="bikes-header">
+    <div>
+      <div class="section-label reveal">Our Fleet</div>
+      <h2 class="section-title reveal reveal-delay-1">FIND YOUR<br><span>PERFECT RIDE</span></h2>
+    </div>
+    <div class="filter-tabs reveal">
+      <button class="filter-tab active" onclick="filterBikes('all', this)">All</button>
+      <button class="filter-tab" onclick="filterBikes('electric', this)">Electric</button>
+      <button class="filter-tab" onclick="filterBikes('city', this)">City</button>
+      <button class="filter-tab" onclick="filterBikes('cargo', this)">Cargo</button>
+      <button class="filter-tab" onclick="filterBikes('sport', this)">Sport</button>
+    </div>
+  </div>
+  <div class="bikes-grid" id="bikesGrid"></div>
+</section>
+
+<!-- FEATURES -->
+<div id="features" class="section-full">
+  <div class="features-bg"></div>
+  <div class="features-inner">
+    <div class="features-grid">
+      <div>
+        <div class="section-label reveal">Why VELOCI</div>
+        <h2 class="section-title reveal reveal-delay-1">BUILT FOR<br><span>CITY LIFE</span></h2>
+        <div class="features-list">
+          <div class="feature-item reveal reveal-delay-2">
+            <div class="feature-icon">📱</div>
+            <div class="feature-text">
+              <h4>One-Tap Unlock</h4>
+              <p>Scan the QR code on any bike with our app. Ride starts in under 10 seconds.</p>
+            </div>
+          </div>
+          <div class="feature-item reveal reveal-delay-3">
+            <div class="feature-icon">🗺️</div>
+            <div class="feature-text">
+              <h4>Real-Time GPS</h4>
+              <p>Track your route, find charging stations, and locate nearby parking hubs live.</p>
+            </div>
+          </div>
+          <div class="feature-item reveal reveal-delay-4">
+            <div class="feature-icon">⛈️</div>
+            <div class="feature-text">
+              <h4>All-Weather Ready</h4>
+              <p>IP67-rated electrical systems. Ride confidently in rain, dust, and urban heat.</p>
+            </div>
+          </div>
+          <div class="feature-item reveal reveal-delay-5">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-text">
+              <h4>Auto-Lock Security</h4>
+              <p>Smart sensors detect parking and lock automatically. Tamper alerts to your phone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="features-visual reveal">
+        <div class="feature-ring"></div>
+        <div class="feature-ring"></div>
+        <div class="feature-ring"></div>
+        <div class="feature-center">⚡</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="section-label reveal">Pick Up Anywhere</div>
+  <h2 class="section-title reveal reveal-delay-1">24 CITY<br><span>HUB LOCATIONS</span></h2>
+  <div class="map-section" style="margin-top:3rem;">
+    <div>
+      <div class="location-list" id="locationList"></div>
+    </div>
+    <div class="map-visual reveal">
+      <div class="map-inner">
+        <div class="map-city">CITY MAP</div>
+        <div class="map-pin" style="top:25%;left:30%"                     data-label="Central Park Hub">📍</div>
+        <div class="map-pin" style="top:45%;left:55%;animation-delay:.5s"  data-label="Midtown East">📍</div>
+        <div class="map-pin" style="top:65%;left:25%;animation-delay:1s"   data-label="Brooklyn Bridge">📍</div>
+        <div class="map-pin" style="top:35%;left:70%;animation-delay:.3s"  data-label="Times Square">📍</div>
+        <div class="map-pin" style="top:70%;left:65%;animation-delay:.8s"  data-label="Lower East">📍</div>
+        <div class="map-pin" style="top:20%;left:60%;animation-delay:1.2s" data-label="Upper West">📍</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<div id="book">
+  <div class="book-inner">
+    <div class="book-grid">
+      <div class="book-info reveal">
+        <div class="section-label">Reserve Now</div>
+        <h2 class="book-info-title">
+          BOOK YOUR<br>ADVENTURE<br>
+          <span style="color:var(--lime)">IN MINUTES</span>
+        </h2>
+        <p>Select your bike, choose a pickup hub, and set your rental duration. We handle the rest — helmet, lock code, and route suggestions included.</p>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h4>Choose Your Bike</h4>
+              <p>Browse our fleet and select by type, range, or color.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h4>Pick a Hub</h4>
+              <p>Select the nearest hub or a convenient drop point.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h4>Ride &amp; Return</h4>
+              <p>Unlock via app. Return to any hub when done.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="book-form reveal reveal-delay-2">
+        <div class="form-title">Reserve a Bike</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="jane@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Pickup Location</label>
+          <select id="pickupSelect">
+            <option>Central Park Hub</option>
+            <option>Midtown East Hub</option>
+            <option>Brooklyn Bridge Hub</option>
+            <option>Times Square Hub</option>
+            <option>Lower East Hub</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Bike Type</label>
+          <select id="bikeTypeSelect" onchange="updatePrice()">
+            <option value="15">City Cruiser — $15/hr</option>
+            <option value="20">Electric Urban — $20/hr</option>
+            <option value="18">Sport Trail — $18/hr</option>
+            <option value="25">Cargo Pro — $25/hr</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="dateInput">
+          </div>
+          <div class="form-group">
+            <label>Duration (hours)</label>
+            <select id="durationSelect" onchange="updatePrice()">
+              <option value="1">1 hour</option>
+              <option value="2">2 hours</option>
+              <option value="4">4 hours</option>
+              <option value="8">Full Day (8h)</option>
+            </select>
+          </div>
+        </div>
+        <div class="price-summary">
+          <div class="price-row"><span>Rental</span><span id="priceBase">$15.00</span></div>
+          <div class="price-row"><span>Helmet &amp; Lock</span><span>$0.00</span></div>
+          <div class="price-row"><span>Insurance</span><span>$2.50</span></div>
+          <div class="price-row total"><span>Total</span><span id="priceTotal">$17.50</span></div>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="bookNow()">
+          Confirm Booking →
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHARGING -->
+<section id="charging">
+  <div class="section-label reveal">Power Up</div>
+  <h2 class="section-title reveal reveal-delay-1">CHARGING<br><span>NETWORK STATUS</span></h2>
+  <p class="reveal reveal-delay-2" style="color:var(--text-muted);margin-top:1rem;max-width:500px;">
+    All VELOCI electric bikes are kept at 80–100% before every rental. Monitor live battery levels at our city hubs.
+  </p>
+  <div class="charging-grid" id="chargingGrid"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label reveal">Riders Love Us</div>
+  <h2 class="section-title reveal reveal-delay-1">REAL REVIEWS<br><span>REAL RIDERS</span></h2>
+  <div class="reviews-grid" id="reviewsGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">VELOCI</div>
+        <p>Premium urban bike rental for the modern city dweller. Ride smart, ride green.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#bikes">Our Fleet</a></li>
+          <li><a href="#locations">Hub Locations</a></li>
+          <li><a href="#charging">Charging Network</a></li>
+          <li><a href="#book">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About VELOCI</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Safety Guide</a></li>
+          <li><a href="#">Report an Issue</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 VELOCI Urban Mobility. All rights reserved.</p>
+      <p style="color:var(--lime)">Ride Clean. Ride Free.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- BIKE MODAL -->
+<div class="modal-overlay" id="bikeModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Bike Name</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-bike-img" id="modalImg"></div>
+      <div class="modal-specs"    id="modalSpecs"></div>
+      <div class="color-picker">
+        <h4>Choose Color</h4>
+        <div class="color-options" id="modalColors"></div>
+      </div>
+      <div class="price-summary">
+        <div class="price-row"><span>Hourly Rate</span><span id="modalPrice">—</span></div>
+        <div class="price-row total"><span>Daily Rate (8h)</span><span id="modalDailyPrice">—</span></div>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:1rem;" onclick="rentFromModal()">
+        Reserve This Bike →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">🎉 Booking confirmed! Check your email.</div>
+
+<script src="app.js"></script>
+</body>
+  </html>
+  
